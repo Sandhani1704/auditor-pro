@@ -6,18 +6,25 @@
   box-sizing: border-box;
 }
 
+.header-background {
+  /* background: linear-gradient(5deg, #11032c, #4b3771); */
+  background: url("../../images/Bg.png") no-repeat;
+}
+
 .header {
   display: flex;
-  /* box-sizing: border-box; */
-  padding: 32px 150px;
+  padding: 32px 150px 0 150px;
   margin: 0 auto;
   max-width: 1140px;
   width: 100%;
-  align-items: center;
+  align-items: center!important;
   height: 48px;
   justify-content: space-between;
-  padding-bottom: 152px;
-  background: linear-gradient(5deg, #11032c, #4b3771);
+}
+
+.header_scroll-animation {
+  padding: 0;
+  padding-top: 32px;
 }
 
 .header__logo {
@@ -58,6 +65,10 @@
   margin-right: 40px;
 }
 
+.header__button_login_scroll-animation {
+  color: #f0f0f0;
+}
+
 .header__button_start {
   align-items: center;
   border: none;
@@ -70,12 +81,69 @@
   color: #f0f0f0;
 }
 
+.button_scroll-animation {
+  background: #f0f0f0;
+  color: #8550f2;
+}
+
 .auditor-info {
   display: flex;
   max-width: 1140px;
   padding: 0 150px;
+  padding-top: 152px;
   justify-content: space-between;
   background: linear-gradient(5deg, #11032c, #4b3771);
+}
+
+.auditor-info_scroll-animation {
+  padding-top: 0;
+  padding-bottom: 91px;
+  background: rgba(133, 80, 242, 1);
+  /* align-items: center; */
+  flex-direction: column;
+  opacity: 0;
+  display: none;
+}
+
+.auditor-info_scroll-animation.auditor-info_scroll-animation_show {
+  display: flex;
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.auditor-info_scroll-animation__container {
+  display: flex;
+  align-items: center;
+  height: 720px;
+  justify-content: space-between;
+}
+
+.auditor-info_scroll-animation__ellipse {
+  display: flex;
+  justify-content: center;
+  width: 458px;
+  height: 458px;
+  border-radius: 229px;
+  background: linear-gradient(5deg, #11032c, #4b3771);
+  align-items: center;
+}
+
+.auditor-info_scroll-animation__text-span {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  /* line-height: 28px; */
+  color: #f0f0f0;
+}
+
+.auditor-info_scroll-animation__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+  text-align: center;
+  color: #f0f0f0;
+  margin: 0;
 }
 
 .auditor-info__text-container {
@@ -298,4 +366,103 @@
   color: #8550f2;
   margin-top: 0;
   margin-bottom: 40px;
+}
+
+.prices__container {
+  display: flex;
+  column-gap: 30px;
+}
+
+.prices__card {
+  width: 360px;
+  height: 374px;
+  background: #fafafa;
+  background: #fafafa;
+  box-shadow: 0px 4px 30px rgba(214, 209, 209, 0.15);
+  border-radius: 20px;
+}
+
+.prices__header {
+  display: flex;
+  background: #121016;
+  height: 62px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #f0f0f0;
+  justify-content: center;
+  border-radius: 20px 20px 0px 0px;
+  margin-bottom: 32px;
+}
+
+.prices__header_premium {
+  background: #8550f2;
+}
+
+.prices__card-price {
+  font-family: "Montserrat", Arial, sans-serif;
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 44px;
+  color: #121016;
+  text-transform: lowercase;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.prices__card-price__span {
+  font-family: "Noto Sans", Arial, sans-serif;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32.69px;
+  color: #121016;
+  text-transform: lowercase;
+}
+
+.prices__card-price_caption {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #5a5070;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.prices__container-conditions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.prices__conditions-item {
+  align-items: center;
+  list-style: none;
+  background: url("../../images/Vector.png") no-repeat;
+  padding-left: 23px;
+  padding-bottom: 0px;
+  background-position: left center;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #5a5070;
+  margin-bottom: 18px;
+}
+
+.prices__conditions-item__span {
+  font-family: "Raleway", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #121016;
 }
