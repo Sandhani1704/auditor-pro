@@ -1,30 +1,53 @@
 .app {
+  display: flex;
+  position: relative;
   font-family: "Raleway", Arial, sans-serif;
   max-width: 1440px;
   margin: 0 auto;
   /* padding: 32px 150px; */
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+  /* justify-content: center; */
 }
 
 .header-background {
-  /* background: linear-gradient(5deg, #11032c, #4b3771); */
-  background: url("../../images/Bg.png") no-repeat;
+    background: url("../../images/Bg.png") no-repeat;
 }
 
 .header {
   display: flex;
   padding: 32px 150px 0 150px;
+  position: fixed;
+  top: 0;
   margin: 0 auto;
   max-width: 1140px;
   width: 100%;
-  align-items: center!important;
+  align-items: center;
   height: 48px;
   justify-content: space-between;
+  background: url("../../images/Bg.png") no-repeat;
+}
+
+.header_about-profit {
+  background: red;
 }
 
 .header_scroll-animation {
   padding: 0;
   padding-top: 32px;
+  position: relative;
+  background: #8550f2;
+}
+
+
+
+.header_prices {
+  padding: 0;
+  padding-top: 32px;
+  /* padding-left: 150px; */
+  /* padding-right: 150px; */
+  position: relative;
+  background: #fafafa;
+  /* box-sizing: border-box; */
 }
 
 .header__logo {
@@ -37,6 +60,10 @@
   font-size: 24px;
   line-height: 28px;
   color: #f0f0f0;
+}
+
+.header__logo_black {
+  color: #121016;
 }
 
 .button {
@@ -92,23 +119,27 @@
   padding: 0 150px;
   padding-top: 152px;
   justify-content: space-between;
-  background: linear-gradient(5deg, #11032c, #4b3771);
+  /* background: linear-gradient(5deg, #11032c, #4b3771); */
 }
 
 .auditor-info_scroll-animation {
+  position: absolute;
+  top: 50px;
+  z-index: 100;
   padding-top: 0;
   padding-bottom: 91px;
-  background: rgba(133, 80, 242, 1);
+  background: #8550f2;
   /* align-items: center; */
   flex-direction: column;
   opacity: 0;
   display: none;
 }
 
-.auditor-info_scroll-animation.auditor-info_scroll-animation_show {
+.auditor-info_scroll-animation {
   display: flex;
   opacity: 1;
   transition: opacity 1s;
+  background: #8550f2;
 }
 
 .auditor-info_scroll-animation__container {
@@ -217,12 +248,14 @@
 
 .about-profit {
   display: flex;
+  flex-direction: column;
   max-width: 1140px;
   padding: 0 150px;
   padding-top: 48px;
   justify-content: space-between;
-  height: 555px;
-  background: linear-gradient(5deg, #11032c, #4b3771);
+  height: 731px;
+  /* background: linear-gradient(5deg, #11032c, #4b3771); */
+  background: url("../../images/Bg.png") no-repeat;
 }
 
 .about-profit__title {
@@ -238,7 +271,12 @@
   margin-bottom: 48px;
 }
 
+.about-profit__main-container {
+  display: flex;
+}
+
 .about-profit__container {
+  padding-top: 48px;
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
@@ -333,11 +371,12 @@
 
 .prices {
   display: flex;
+  flex-direction: column;
   background: rgba(250, 250, 250, 1);
   max-width: 1140px;
   align-items: center;
   padding: 0 150px;
-  padding-top: 72px;
+  /* padding-top: 72px; */
 }
 
 .prices__corporate-container {
@@ -353,8 +392,13 @@
   line-height: 42px;
   text-align: center;
   color: #121016;
-  margin-top: 0;
+  margin-top: 72px;
   margin-bottom: 8px;
+}
+
+.prices__title_individuals {
+  margin-top: 56px;
+  margin-bottom: 40px;
 }
 
 .prices__caption {
@@ -399,6 +443,10 @@
 
 .prices__header_premium {
   background: #8550f2;
+}
+
+.prices__header_free {
+  background: #5a5070;
 }
 
 .prices__card-price {

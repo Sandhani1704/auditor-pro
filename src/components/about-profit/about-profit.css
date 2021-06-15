@@ -1,0 +1,186 @@
+.about-profit {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 150px;
+  padding-top: 48px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  min-height: 651px;
+  background: url('./images/Bg.png') no-repeat;
+}
+
+  .about-profit__title {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    background-image: linear-gradient(135deg, #8550f2, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-top: 0;
+    margin-bottom: 48px;
+  }
+
+  .about-profit__main-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .about-profit__main-text-container {
+    padding-top: 48px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-profit__text-container {
+    display: grid;
+    row-gap: 45px;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    grid-template-columns: 262px 262px;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .about-profit__paragraph-title {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #f0f0f0;
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  .about-profit__paragraph-title_high {
+    height: 47px;
+  }
+
+  .about-profit__paragraph-text {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #dadada;
+    hyphens: manual;
+    margin: 0;
+  }
+
+  .about-profit__paragraph-text_small {
+    display: none;
+  }
+
+  .about-profit__animation-advantage {
+    display: flex;
+    background: url('./images/Анимация_преимущества.gif') no-repeat;
+    max-width: 555px;
+    width: 100%;
+    min-height: 545px;
+    background-position: center center;
+    background-size: cover;
+  }
+
+@media screen and (max-width: 1300px) {
+  .about-profit {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .about-profit {
+    justify-content: flex-start;
+    min-height: 952px;
+    align-items: center;
+    padding-top: 88px;
+    padding-bottom: 0px;
+    background-size: cover;
+  }
+    .about-profit__main-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-profit__main-text-container {
+      padding-top: 0px;
+    }
+
+    .about-profit__title {
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .about-profit__text-container {
+      row-gap: 45px;
+      column-gap: 11.9%;
+    }
+    .about-profit__animation-cover {
+      display: flex;
+      max-width: 474px;
+      width: 100%;
+      min-height: 474px;
+      width: 474px;
+      height: 474px;
+    }
+
+    .about-profit__animation-advantage {
+      max-width: 474px;
+      width: 100%;
+      min-height: 474px;
+    }
+  }
+
+@media screen and (max-width: 650px) {
+  .about-profit {
+    min-height: 758px;
+    padding-left: 11px;
+    padding-right: 11px;
+    padding-top: 80px;
+  }
+    .about-profit__text-container {
+      row-gap: 0;
+      column-gap: 5.7%;
+      grid-template-columns: 166px 166px;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .about-profit__title {
+      font-size: 18px;
+      line-height: 21px;
+      margin-bottom: 32px;
+    }
+    .about-profit__paragraph-title {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    .about-profit__paragraph-title_high {
+      height: 32px;
+    }
+
+    .about-profit__paragraph-text {
+      display: none;
+    }
+    .about-profit__paragraph-text_small {
+      display: inline-block;
+      font-family: 'Raleway', Arial, sans-serif;
+      font-style: normal;
+      font-weight: 400px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #dadada;
+      margin: 0;
+    }
+    .about-profit__animation-advantage {
+      max-width: 352px;
+      width: 100%;
+      min-height: 352px;
+    }
+  }
+

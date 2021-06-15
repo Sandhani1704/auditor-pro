@@ -1,0 +1,25 @@
+.logo {
+  display: flex;
+  max-width: 135px;
+  width: 100%;
+  height: 28px;
+  z-index: 1;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #f0f0f0;
+  align-items: center;
+  text-align: center;
+}
+.logo_black {
+  color: #121016;
+}
+@media screen and (max-width: 560px) {
+  .logo {
+    max-width: 101px;
+    width: 100%;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}

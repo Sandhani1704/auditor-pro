@@ -1,0 +1,64 @@
+.header {
+  display: flex;
+  max-width: 1440px;
+  width: 100%;
+  min-height: 80px;
+  position: fixed;
+  top: 0px;
+  padding-top: 32px;
+  padding-bottom: 0px;
+  padding-left: 150px;
+  padding-right: 150px;
+  box-sizing: border-box;
+  align-items: center;
+  background: url("../../images/Bg.png") no-repeat;
+  background-size: cover;
+  z-index: 100;
+  margin: 0 auto;
+}
+.header_about-profit {
+  position: relative;
+  background: red;
+}
+
+.header_info {
+  position: relative;
+  background: #8550f2;
+  background-size: cover;
+  margin: 0 auto;
+  z-index: 101;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.header__button-container {
+  display: flex;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 1300px) {
+  .header {
+    padding-top: 24px;
+    padding-bottom: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+    .header_info {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .header {
+    max-width: 375px;
+    width: 100%;
+  }
+}

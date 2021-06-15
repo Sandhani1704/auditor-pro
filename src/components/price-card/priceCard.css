@@ -1,0 +1,191 @@
+.priceCard {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 374px;
+  box-shadow: 0px 4px 30px rgba(214, 209, 209, 0.15);
+  border-radius: 20px;
+}
+  .priceCard_standart {
+    background: #fafafa;
+  }
+
+  .priceCard_premium {
+    background: #fafafa;
+  }
+
+  .priceCard_free {
+    background: #ffffff;
+  }
+
+  .priceCard__header {
+    display: flex;
+    max-width: 360px;
+    width: 100%;
+    min-height: 62px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #f0f0f0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px 20px 0px 0px;
+    margin-bottom: 32px;
+  }
+    .priceCard__header_standart {
+      background: #121016;
+    }
+
+    .priceCard__header_premium {
+      background: #8550f2;
+    }
+
+    .priceCard__header_free {
+      background: #5a5070;
+    }
+  
+  .priceCard__card-title {
+    margin: 0;
+  }
+
+  .priceCard__card-price {
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 44px;
+    color: #121016;
+    text-transform: lowercase;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .priceCard__card-price__span {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32.69px;
+    color: #121016;
+    text-transform: lowercase;
+  }
+
+  .priceCard__card-price_caption {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #5a5070;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+
+  .priceCard__container-conditions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .priceCard__conditionsItem {
+    display: inline-block;
+    align-items: center;
+    list-style: none;
+    background: url('./images/Vector.png') no-repeat;
+    padding-left: 23px;
+    padding-bottom: 0px;
+    background-position: left center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #5a5070;
+    margin-bottom: 18px;
+  }
+
+  .priceCard__conditionsItem_visible {
+    display: inline-block;
+    align-items: center;
+    list-style: none;
+    background: url('./images/Vector.png') no-repeat;
+    padding-left: 23px;
+    padding-bottom: 0px;
+    background-position: left center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #5a5070;
+    margin-bottom: 18px;
+  }
+  .priceCard__conditionsItem_none {
+    display: none;
+  }
+
+  .priceCard__conditions-item__span {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #121016;
+  }
+
+@media screen and (max-width: 800px) {
+  .priceCard {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .priceCard {
+    width: 330px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .priceCard {
+    max-width: 228px;
+    width: 100%;
+    min-height: 311.29px;
+    border-radius: 8px;
+  }
+    .priceCard__header {
+      margin-bottom: 24px;
+      border-radius: 8px 8px 0px 0px;
+      min-height: 51px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    .priceCard__card-price {
+      font-size: 24px;
+      line-height: 29px;
+    }
+
+    .priceCard__card-price__span {
+      font-size: 16px;
+      line-height: 18.78px;
+    }
+    .priceCard__card-price_caption {
+      font-size: 12px;
+      line-height: 18px;
+      margin-bottom: 16px;
+    }
+
+    .priceCard__conditionsItem {
+      font-size: 14px;
+      line-height: 17px;
+      margin-bottom: 12px;
+    }
+
+    .priceCard__conditions-item__span {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
