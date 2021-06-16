@@ -1,10 +1,14 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
 import './about-profit.css'
 
 function AboutProfit() {
+  const aboutProfit = React.useRef();
+  // const [profit, setProfit] = useState('about-profit')
+  
+
   return (
-    <section className='about-profit'>
+    // <section className={profit} ref={aboutProfit} >
+    <section className='about-profit' ref={aboutProfit} >
       <div className='about-profit__main-container'>
         <div className='about-profit__main-text-container'>
           <h1 className='about-profit__title'>Что вам даст AuditorPRO</h1>

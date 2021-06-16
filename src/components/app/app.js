@@ -1,5 +1,5 @@
 import './app.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import Header from '../header/header'
 import AuditorInfo from '../auditor-info/auditor-info'
 import ScrollAnimation from '../scroll-animation/scroll-animation'
@@ -11,64 +11,43 @@ import Questions from '../questions/questions'
 import Footer from '../footer/footer'
 
 function App() {
+  const [headerIsActive, setHeaderIsActive] = useState(false)
+  const [colorHeader, setColorHeader] = useState('')
 
-  const [isActive, setIsActive] = React.useState(false)
-  // const activeFromPx = 20;
-  // const activeToPx = 100;
 
-  // const headerRef = React.useRef();
-
-  // React.useEffect(() => {
-  //   setIsActive(true)
-  // }, [])
-
-  React.useEffect(() => {
-
-    const scrollHandler = (evt) => {
-
-      if (evt?.target?.classlist?.contains('about-profit')) {
-
-        const header = document.querySelector('.header');
-        header.classList.add('header_about-profit');
+  useEffect(() => {
+    const listenScrollEvent = (event) => {
+      const header = document.querySelector('.header')
+      const headerCoords = header.getBoundingClientRect()
+      const howItWorks = document.querySelector('.how-it-works')
+      const howItWorksCoords = howItWorks.getBoundingClientRect()
+      const prices = document.querySelector('.prices')
+      const pricesCoords = prices.getBoundingClientRect()
+      const reviews = document.querySelector('.reviews')
+      const reviewsCoords = reviews.getBoundingClientRect()
+      if (howItWorksCoords.top <= headerCoords.bottom && howItWorksCoords.bottom >= headerCoords.bottom) {
+        setHeaderIsActive(true)
+        setColorHeader('lilac')
+      } else if (pricesCoords.top <= headerCoords.bottom && pricesCoords.bottom >= headerCoords.bottom) {
+        setHeaderIsActive(true)
+        setColorHeader('white')
+      } else if (reviewsCoords.top <= headerCoords.bottom && reviewsCoords.bottom >= headerCoords.bottom) {
+        setHeaderIsActive(true)
+        setColorHeader('white')
+      } else {
+        setHeaderIsActive(false)
+        setColorHeader('')
       }
-
     }
-    document.addEventListener('scroll', scrollHandler)
-    return function () {
-      document.removeEventListener('scroll', scrollHandler)
-    }
+    window.addEventListener('scroll', listenScrollEvent)
 
-
+    return () => window.removeEventListener('scroll', listenScrollEvent)
   }, [])
-
-
-  // console.log('scroll')
-  // if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
-  //   const header = document.querySelector('.header');
-  //   header.classList.add('header_about-profit');
-  // }
-
-  // const handleScroll = () => {
-  //     const top = headerRef.current
-  //   top.getBoundingClientRect()
-  //   if (top > activeFromPx && top < activeToPx && !isActive) {
-  //     setIsActive(true);
-  //   }
-  //   if ((top <= activeFromPx || top >= activeToPx) && isActive) {
-  //     setIsActive(false);
-  //   }
-  // }
-
-  // React.useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
-  //     },)
-
-
 
   return (
     <div className="app">
       <div className="header-background">
-        <Header />
+      {headerIsActive ? <Header colorHeader={colorHeader} headerIsActive={headerIsActive} /> : <Header />}
         <AuditorInfo />
         <ScrollAnimation />
         <AboutProfit />
