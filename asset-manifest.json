@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/auditor-pro/static/css/main.fb95ffd6.chunk.css",
+    "main.css": "/auditor-pro/static/css/main.ab05e0c6.chunk.css",
     "main.js": "/auditor-pro/static/js/main.f4924794.chunk.js",
     "main.js.map": "/auditor-pro/static/js/main.f4924794.chunk.js.map",
     "runtime-main.js": "/auditor-pro/static/js/runtime-main.0affc237.js",
@@ -10,7 +10,7 @@
     "static/js/3.c0ef6418.chunk.js": "/auditor-pro/static/js/3.c0ef6418.chunk.js",
     "static/js/3.c0ef6418.chunk.js.map": "/auditor-pro/static/js/3.c0ef6418.chunk.js.map",
     "index.html": "/auditor-pro/index.html",
-    "static/css/main.fb95ffd6.chunk.css.map": "/auditor-pro/static/css/main.fb95ffd6.chunk.css.map",
+    "static/css/main.ab05e0c6.chunk.css.map": "/auditor-pro/static/css/main.ab05e0c6.chunk.css.map",
     "static/js/2.83b40b52.chunk.js.LICENSE.txt": "/auditor-pro/static/js/2.83b40b52.chunk.js.LICENSE.txt",
     "static/media/app.css": "/auditor-pro/static/media/1698.30b7c464.png",
     "static/media/questions.css": "/auditor-pro/static/media/arm.70f25eae.png",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.0affc237.js",
     "static/js/2.83b40b52.chunk.js",
-    "static/css/main.fb95ffd6.chunk.css",
+    "static/css/main.ab05e0c6.chunk.css",
     "static/js/main.f4924794.chunk.js"
   ]
 }
