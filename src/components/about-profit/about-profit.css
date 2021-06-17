@@ -4,14 +4,14 @@
   max-width: 1440px;
   width: 100%;
   padding: 0 150px;
-  padding-top: 48px;
+  padding-top: 130px;
   justify-content: space-between;
   box-sizing: border-box;
   min-height: 651px;
   background: url('./images/Bg.png') no-repeat;
 }
 
-.about-profit_white {
+/* .about-profit_white {
   display: flex;
   flex-direction: column;
   max-width: 1440px;
@@ -22,7 +22,7 @@
   box-sizing: border-box;
   min-height: 651px;
   background: red;
-}
+} */
 
   .about-profit__title {
     font-family: 'Raleway', Arial, sans-serif;

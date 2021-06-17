@@ -13,7 +13,7 @@ import Footer from '../footer/footer'
 function App() {
   const [headerIsActive, setHeaderIsActive] = useState(false)
   const [colorHeader, setColorHeader] = useState('')
-
+  const [animationInfo, setAnimationInfo] = useState(false)
 
   useEffect(() => {
     const listenScrollEvent = (event) => {
@@ -44,12 +44,36 @@ function App() {
     return () => window.removeEventListener('scroll', listenScrollEvent)
   }, [])
 
+  useEffect(() => {
+    const handleScrollEvent = (event) => {
+      const header = document.querySelector('.header')
+      const headerCoords = header.getBoundingClientRect()
+      const auditorInfo = document.querySelector('.auditorInfo')
+      const auditorInfoCoords = auditorInfo.getBoundingClientRect()
+      const aboutProfit = document.querySelector('.about-profit')
+      const aboutProfitCoords = aboutProfit.getBoundingClientRect()
+      // const animation = document.querySelector('.scroll-animation_scrollAnimation__2X9oe')
+      // const animationCoords = animation.getBoundingClientRect()
+      console.log(headerCoords.bottom)
+      if (auditorInfoCoords.top < headerCoords.bottom) {
+        setAnimationInfo(true)
+      } else if (aboutProfitCoords.top <= headerCoords.bottom) {
+        setAnimationInfo(false)
+      } else {
+        setAnimationInfo(false)
+      }
+    }
+    window.addEventListener('scroll', handleScrollEvent)
+
+    return () => window.removeEventListener('scroll', handleScrollEvent)
+  }, [])
+
   return (
     <div className="app">
       <div className="header-background">
       {headerIsActive ? <Header colorHeader={colorHeader} headerIsActive={headerIsActive} /> : <Header />}
         <AuditorInfo />
-        <ScrollAnimation />
+        {animationInfo && <ScrollAnimation />}
         <AboutProfit />
         <HowItWorks />
         <Prices />
