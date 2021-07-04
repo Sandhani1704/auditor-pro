@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/auditor-pro/static/css/main.ab05e0c6.chunk.css",
-    "main.js": "/auditor-pro/static/js/main.f4924794.chunk.js",
-    "main.js.map": "/auditor-pro/static/js/main.f4924794.chunk.js.map",
-    "runtime-main.js": "/auditor-pro/static/js/runtime-main.0affc237.js",
-    "runtime-main.js.map": "/auditor-pro/static/js/runtime-main.0affc237.js.map",
-    "static/js/2.83b40b52.chunk.js": "/auditor-pro/static/js/2.83b40b52.chunk.js",
-    "static/js/2.83b40b52.chunk.js.map": "/auditor-pro/static/js/2.83b40b52.chunk.js.map",
-    "static/js/3.c0ef6418.chunk.js": "/auditor-pro/static/js/3.c0ef6418.chunk.js",
-    "static/js/3.c0ef6418.chunk.js.map": "/auditor-pro/static/js/3.c0ef6418.chunk.js.map",
+    "main.css": "/auditor-pro/static/css/main.d34090f4.chunk.css",
+    "main.js": "/auditor-pro/static/js/main.9308be15.chunk.js",
+    "main.js.map": "/auditor-pro/static/js/main.9308be15.chunk.js.map",
+    "runtime-main.js": "/auditor-pro/static/js/runtime-main.6ef51dc1.js",
+    "runtime-main.js.map": "/auditor-pro/static/js/runtime-main.6ef51dc1.js.map",
+    "static/js/2.6305266f.chunk.js": "/auditor-pro/static/js/2.6305266f.chunk.js",
+    "static/js/2.6305266f.chunk.js.map": "/auditor-pro/static/js/2.6305266f.chunk.js.map",
+    "static/js/3.f1b95920.chunk.js": "/auditor-pro/static/js/3.f1b95920.chunk.js",
+    "static/js/3.f1b95920.chunk.js.map": "/auditor-pro/static/js/3.f1b95920.chunk.js.map",
     "index.html": "/auditor-pro/index.html",
-    "static/css/main.ab05e0c6.chunk.css.map": "/auditor-pro/static/css/main.ab05e0c6.chunk.css.map",
-    "static/js/2.83b40b52.chunk.js.LICENSE.txt": "/auditor-pro/static/js/2.83b40b52.chunk.js.LICENSE.txt",
-    "static/media/app.css": "/auditor-pro/static/media/1698.30b7c464.png",
-    "static/media/questions.css": "/auditor-pro/static/media/arm.70f25eae.png",
+    "static/css/main.d34090f4.chunk.css.map": "/auditor-pro/static/css/main.d34090f4.chunk.css.map",
+    "static/js/2.6305266f.chunk.js.LICENSE.txt": "/auditor-pro/static/js/2.6305266f.chunk.js.LICENSE.txt",
+    "static/media/app.module.scss": "/auditor-pro/static/media/Bg.89de3bca.png",
     "static/media/index.css": "/auditor-pro/static/media/Raleway-SemiBold.91096db7.woff",
-    "static/media/auditor-info.css": "/auditor-pro/static/media/first_screen.b825758d.gif",
-    "static/media/how-it-works.css": "/auditor-pro/static/media/illustration-pic.30b7c464.png",
-    "static/media/reviews.css": "/auditor-pro/static/media/picture.11ab8559.png",
-    "static/media/about-profit.css": "/auditor-pro/static/media/Анимация_преимущества.2dd50f02.gif"
+    "static/media/questions.module.scss": "/auditor-pro/static/media/arm.70f25eae.png",
+    "static/media/auditor-info.module.scss": "/auditor-pro/static/media/first_screen.b825758d.gif",
+    "static/media/howItWorksAnimation.module.scss": "/auditor-pro/static/media/purple-3.8296fc60.png",
+    "static/media/reviews.module.scss": "/auditor-pro/static/media/man-pic.cc88c2c5.png",
+    "static/media/about-profit.module.scss": "/auditor-pro/static/media/Анимация_преимущества.2dd50f02.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.0affc237.js",
-    "static/js/2.83b40b52.chunk.js",
-    "static/css/main.ab05e0c6.chunk.css",
-    "static/js/main.f4924794.chunk.js"
+    "static/js/runtime-main.6ef51dc1.js",
+    "static/js/2.6305266f.chunk.js",
+    "static/css/main.d34090f4.chunk.css",
+    "static/js/main.9308be15.chunk.js"
   ]
 }
