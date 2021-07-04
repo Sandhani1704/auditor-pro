@@ -1,0 +1,26 @@
+.button-login {
+  display: flex;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  align-items: center;
+  border: none;
+  background: none;
+  color: #8550f2;
+  text-align: center;
+  margin-right: 40px;
+  padding: 0;
+  &_white {
+    color: #f0f0f0;
+  }
+  &_purple {
+    color: #8550f2;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .button-login {
+    display: none;
+  }
+}

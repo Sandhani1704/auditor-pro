@@ -1,0 +1,44 @@
+.button {
+  display: flex;
+  font-family: 'Raleway', Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f0f0f0;
+  border-radius: 8px;
+  min-height: 48px;
+  background: #8550f2;
+  padding-left: 24px;
+  padding-right: 24px;
+  cursor: pointer;
+
+  &_standart {
+    max-width: 190px;
+    width: 100%;
+  }
+  &_white {
+    color: #f0f0f0;
+  }
+
+  &_backgroundWhite {
+    background: #f0f0f0;
+    color: #8550f2;
+  }
+
+  &_info {
+    max-width: 233px;
+    width: 100%;
+  }
+  &_big {
+    max-width: 242px;
+    width: 100%;
+  }
+  &_purple {
+    background: #8550f2;
+    color: #f0f0f0;
+  }
+}

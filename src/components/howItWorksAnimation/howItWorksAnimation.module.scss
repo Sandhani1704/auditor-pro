@@ -1,0 +1,201 @@
+@keyframes appear {
+  0% {
+    opacity: 1;
+    transform: translate3d(-100%, -100%, 0) rotate3d(0, 1, 1, 25deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  40% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(100%, 100%, 0) rotate3d(0, 1, 1, 25deg) scale(0.5, 0.5);
+  }
+}
+
+@keyframes appearSecondPurple {
+  0% {
+    opacity: 1;
+    transform: translate3d(-100%, -100%, -100%) rotate3d(0, 1, 1, 25deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translate3d(-100%, -100%, -100%);
+  }
+  40% {
+    opacity: 1;
+    transform: translate3d(-100%, -100%, -100%);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(100%, 100%, 0) rotate3d(0, 1, 1, 25deg);
+  }
+}
+
+.howItWorksAnimation {
+  display: flex;
+  position: relative;
+  max-width: 555px;
+  width: 100%;
+  min-height: 555px;
+  background-size: cover;
+
+  &__illustrations-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    max-width: 525px;
+    width: 100%;
+    min-height: 525px;
+    background-size: cover;
+
+    &_purple {
+      background: url('./images/purple-background.png') center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-iteration-count: infinite;
+      // animation-duration: 4s;
+      animation-duration: 3.5s;
+      animation-delay: 0.25s;
+      animation-timing-function: ease, ease-out;
+      animation-play-state: initial;
+    }
+    &_pink {
+      background: url('./images/pink-background.png') center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-iteration-count: infinite;
+      animation-duration: 3.5s;
+      animation-delay: 0.25s;
+      animation-timing-function: ease, ease-out;
+    }
+    &_secondPurple {
+      background: url('./images/purple-background.png') center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-iteration-count: infinite;
+      animation-duration: 3.5s;
+      animation-delay: 0.25s;
+      // animation-timing-function: ease-in-out;
+    }
+    &_secondPink {
+      background: url('./images/pink-background.png') center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-iteration-count: infinite;
+      animation-duration: 3.5s;
+      animation-delay: 0.25s;
+      animation-timing-function: ease, ease-out;
+    }
+    &_thirdPurple {
+      background: url('./images/purple-background.png') center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-iteration-count: infinite;
+      animation-duration: 3.5s;
+      animation-delay: 0.25s;
+      animation-timing-function: ease, ease-out;
+    }
+  }
+
+  &__illustrations-image {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    display: flex;
+    max-width: 525px;
+    width: 100%;
+    min-height: 525px;
+    background-size: cover;
+    &_purple {
+      background: url('./images/illusstration-1-purple.png') center center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-duration: 3.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease, ease-out;
+      animation-play-state: initial;
+    }
+    &_pink {
+      background: url('./images/pink-1.png') center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-duration: 3.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+    &_secondPurple {
+      background: url('./images/purple-2.png') center center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-duration: 3.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+    &_secondPink {
+      background: url('./images/pink-2.png') center center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-duration: 3.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+    &_thirdPurple {
+      background: url('./images/purple-3.png') center center no-repeat;
+      background-size: cover;
+      animation: appear;
+      animation-duration: 3.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .howItWorksAnimation {
+    max-width: 596px;
+    width: 100%;
+    min-height: 596px;
+    &__illustrations-background {
+      max-width: 525px;
+      width: 100%;
+      min-height: 525px;
+    }
+    &__illustrations-image {
+      max-width: 525px;
+      width: 100%;
+      min-height: 525px;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .howItWorksAnimation {
+    max-width: 352px;
+    width: 100%;
+    min-height: 352px;
+    &__illustrations-image {
+      max-width: 310px;
+      width: 100%;
+      min-height: 310px;
+    }
+    &__illustrations-background {
+      max-width: 310px;
+      width: 100%;
+      min-height: 310px;
+    }
+  }
+}

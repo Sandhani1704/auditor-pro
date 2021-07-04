@@ -1,0 +1,34 @@
+body {
+  overflow-x: hidden;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+
+.app {
+  font-family: "Raleway", Arial, sans-serif;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  &__background {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background: url("./images/Bg.png") no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.app input {
+  outline: none;
+}
+
+

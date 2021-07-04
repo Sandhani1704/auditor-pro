@@ -1,0 +1,197 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  background: rgba(250, 250, 250, 1);
+  background-size: cover;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 0 150px;
+  // padding-top: 132px;
+  padding-top: 100px;
+  padding-bottom: 152px;
+
+  &__background {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1090px;
+    width: 100%;
+    min-height: 350px;
+    background: #8550f2;
+    border-radius: 8px;
+    background-size: cover;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  &__photo {
+    display: flex;
+    position: absolute;
+    top: -60px;
+    left: 74px;
+    max-width: 360px;
+    width: 100%;
+    height: 470px;
+    z-index: 1;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  &__text {
+    position: absolute;
+    top: 98px;
+    left: 464px;
+    font-family: 'Raleway', Arial, sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 135%;
+    color: #f0f0f0;
+    margin-right: 42px;
+  }
+
+  &__caption-container {
+    position: absolute;
+    top: 274px;
+    left: 464px;
+  }
+
+  &__caption-name {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #f0f0f0;
+    margin: 0;
+  }
+
+  &__caption-profession {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #dadada;
+    margin: 0;
+  }
+
+  &__backButton {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: -24px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+  }
+
+  &__nextButton {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: -24px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .reviews {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .reviews {
+    padding-top: 116px;
+    &__background {
+      max-width: 672px;
+      width: 100%;
+      min-height: 350px;
+      padding-top: 140px;
+      padding-bottom: 180px;
+    }
+    &__photo {
+      top: -32px;
+      left: 38px;
+      max-width: 165px;
+      width: 100%;
+      height: 214px;
+      z-index: 1;
+    }
+
+    &__text {
+      position: absolute;
+      top: 88px;
+      left: 223px;
+    }
+
+    &__caption-container {
+      top: 206px;
+      left: 38px;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .reviews {
+    padding-top: 102px;
+    &__background {
+      max-width: 310px;
+      width: 100%;
+      min-height: 402px;
+      padding-top: 126px;
+      padding-bottom: 80px;
+    }
+    &__photo {
+      top: -46px;
+      transform: translate(-50%, 0);
+      left: 50%;
+      max-width: 92px;
+      width: 100%;
+      height: 92px;
+      z-index: 1;
+      border-radius: 46px;
+      background-size: contain;
+      background: url('./images/man-pic.png') no-repeat;
+    }
+
+    &__text {
+      position: absolute;
+      top: 48px;
+      left: 42px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 135%;
+      width: 228px;
+      margin-right: 42px;
+    }
+
+    &__caption-container {
+      max-width: 124px;
+      width: 100%;
+      min-height: 56px;
+      top: 330px;
+      left: 48px;
+    }
+    &__caption-name {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    &__caption-profession {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
