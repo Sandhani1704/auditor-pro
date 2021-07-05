@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { useDispatch } from 'react-redux'
-// import { Redirect, useRouteMatch } from 'react-router-dom'
-// import { Context } from '../../context'
-// import { Authorization } from 'components/authorization/authorization'
-// import { Actions } from 'components/authorization/redux/actions'
 import Header from "../header/header";
 import AuditorInfo from "../auditor-info/auditor-info";
 import ScrollAnimation from "../scroll-animation/scroll-animation";
@@ -21,6 +16,7 @@ const App = () => {
   const [animationInfo, setAnimationInfo] = useState({
     animationStart: "",
     auditorInfoDisplay: "",
+    backgroundAboutProfit: "",
   });
 
   const [color, setColor] = useState({
@@ -89,7 +85,7 @@ const App = () => {
         aboutProfitCoords.bottom >= headerCoords.bottom
       ) {
         setColor({
-          headerBackground: "darkPurple",
+          headerBackground: "darkPurple",// darkPurple
           logoColor: "white",
           buttonLoginColor: "purple",
           buttonBackground: "purple",
@@ -100,22 +96,24 @@ const App = () => {
         setAnimationInfo({
           animationStart: "start",
           auditorInfoDisplay: "hide",
+          backgroundAboutProfit: "background"
         });
-        // setColor({
-        //   headerBackground: 'purple',
-        //   logoColor: 'white',
-        //   buttonLoginColor: 'white',
-        //   buttonBackground: 'backgroundWhite',
-        //   buttonColor: 'purple',
-        // })
+        setColor({
+          headerBackground: 'purple',
+          logoColor: 'white',
+          buttonLoginColor: 'white',
+          buttonBackground: 'backgroundWhite',
+          buttonColor: 'purple',
+        })
       } else if (auditorInfoCoords.bottom >= headerCoords.bottom) {
         setHasScrollAnimation(false);
         setAnimationInfo({
           animationStart: "hide",
           auditorInfoDisplay: "start",
+          backgroundAboutProfit: ""
         });
         setColor({
-          headerBackground: "darkPurple",
+          headerBackground: "", // darkPurple
           logoColor: "white",
           buttonLoginColor: "purple",
           buttonBackground: "purple",
@@ -396,7 +394,7 @@ const App = () => {
           />
           <AuditorInfo display={animationInfo.auditorInfoDisplay} />
           <ScrollAnimation animation={animationInfo.animationStart} />
-          <AboutProfit />
+          <AboutProfit background={animationInfo.backgroundAboutProfit}/>
           <HowItWorks
             backgroundImage={animationHowItWorks.howItWorksImage}
             background={stylesHowitWorks.background}

@@ -1,11 +1,11 @@
 body {
   overflow-x: hidden;
 }
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-
-
 
 .app {
   font-family: "Raleway", Arial, sans-serif;
@@ -30,5 +30,3 @@ body {
 .app input {
   outline: none;
 }
-
-

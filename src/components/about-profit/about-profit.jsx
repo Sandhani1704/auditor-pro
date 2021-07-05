@@ -2,9 +2,9 @@ import React from 'react'
 
 import s from './about-profit.module.scss'
 
-function AboutProfit() {
+function AboutProfit({ background }) {
   return (
-    <section className={s['about-profit']} id='about-profit'>
+    <section className={`${s['about-profit']} ${s[`about-profit_${background}`]}`} id='about-profit'> 
       <div className={s['about-profit__main-container']}>
         <div className={s['about-profit__main-text-container']}>
           <h1 className={s['about-profit__title']}>Что вам даст AuditorPRO</h1>
