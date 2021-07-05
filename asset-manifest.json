@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/auditor-pro/static/css/main.d34090f4.chunk.css",
-    "main.js": "/auditor-pro/static/js/main.9308be15.chunk.js",
-    "main.js.map": "/auditor-pro/static/js/main.9308be15.chunk.js.map",
+    "main.css": "/auditor-pro/static/css/main.0b7af2d6.chunk.css",
+    "main.js": "/auditor-pro/static/js/main.f5645a0a.chunk.js",
+    "main.js.map": "/auditor-pro/static/js/main.f5645a0a.chunk.js.map",
     "runtime-main.js": "/auditor-pro/static/js/runtime-main.6ef51dc1.js",
     "runtime-main.js.map": "/auditor-pro/static/js/runtime-main.6ef51dc1.js.map",
     "static/js/2.6305266f.chunk.js": "/auditor-pro/static/js/2.6305266f.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.f1b95920.chunk.js": "/auditor-pro/static/js/3.f1b95920.chunk.js",
     "static/js/3.f1b95920.chunk.js.map": "/auditor-pro/static/js/3.f1b95920.chunk.js.map",
     "index.html": "/auditor-pro/index.html",
-    "static/css/main.d34090f4.chunk.css.map": "/auditor-pro/static/css/main.d34090f4.chunk.css.map",
+    "static/css/main.0b7af2d6.chunk.css.map": "/auditor-pro/static/css/main.0b7af2d6.chunk.css.map",
     "static/js/2.6305266f.chunk.js.LICENSE.txt": "/auditor-pro/static/js/2.6305266f.chunk.js.LICENSE.txt",
     "static/media/app.module.scss": "/auditor-pro/static/media/Bg.89de3bca.png",
     "static/media/index.css": "/auditor-pro/static/media/Raleway-SemiBold.91096db7.woff",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.6ef51dc1.js",
     "static/js/2.6305266f.chunk.js",
-    "static/css/main.d34090f4.chunk.css",
-    "static/js/main.9308be15.chunk.js"
+    "static/css/main.0b7af2d6.chunk.css",
+    "static/js/main.f5645a0a.chunk.js"
   ]
 }
