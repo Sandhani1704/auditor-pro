@@ -10,9 +10,10 @@
   position: relative;
   overflow: hidden;
   // overflow: scroll;
+  background: #11032C;
   
   &_background {
-    background: inherit;
+    background: #11032C;
     background-size: cover;
   }
   &__main-container {
@@ -88,14 +89,19 @@
 
   &__animation-advantage {
     display: flex;
-    background: url('./images/Анимация_преимущества.gif') no-repeat;
+    background: url('./images/анимация_преимущества.png') transparent no-repeat;
     max-width: 555px;
     width: 100%;
     height: 555px;
     background-position: bottom;
     // background-size: cover;
     padding-bottom: 48px;
+    &_start {
+      // background: url('./images/Анимация_преимущества.gif') transparent no-repeat;
+      background: url('./images/Анимация_преимущества.gif') transparent no-repeat;
+    }
   }
+  
 }
 
 @media screen and (max-width: 1300px) {

@@ -30,8 +30,8 @@
   overflow: hidden;
   &_start {
     display: flex;
-    animation: slideInUp 1s;
-    animation-duration: 2s;
+    animation: slideInUp 0.8s;
+    // animation-duration: 2s;
     overflow: hidden;
     visibility: visible;
   }

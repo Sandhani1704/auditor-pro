@@ -11,7 +11,11 @@ import Footer from "../footer/footer";
 import s from "./app.module.scss";
 
 const App = () => {
-  const [hasScrollAnimation, setHasScrollAnimation] = useState(false);
+  /** Состояние второго блока (показан или нет)
+   * Меняется на true после окончания анимации "выдвижения второго блока"
+   * */
+  const [secondBlockIsVisible, setSecondBLockIsVisible] = useState(false);
+  const [startAnimationAdvantage, setStartAnimationAdvantage] = useState(false);
 
   const [animationInfo, setAnimationInfo] = useState({
     animationStart: "",
@@ -41,80 +45,104 @@ const App = () => {
     text: "Создание чек-листа с присвоением QR-кода",
   });
 
+  /** Стили для хедера на блоке howItWorks */
+  const howItWorksAnimation = (index) => {
+    // eslint-disable-next-line default-case
+    switch (index) {
+      case 0:
+        return {
+          headerBackground: "lilac",
+          logoColor: "black",
+          buttonLoginColor: "purple",
+          buttonBackground: "purple",
+          buttonColor: "white",
+        };
+      case 1:
+        return {
+          headerBackground: "pink",
+          logoColor: "black",
+          buttonLoginColor: "purple",
+          buttonBackground: "purple",
+          buttonColor: "white",
+        };
+      case 2:
+        return {
+          headerBackground: "lilac",
+          logoColor: "black",
+          buttonLoginColor: "purple",
+          buttonBackground: "purple",
+          buttonColor: "white",
+        };
+      case 3:
+        return {
+          headerBackground: "pink",
+          logoColor: "black",
+          buttonLoginColor: "purple",
+          buttonBackground: "purple",
+          buttonColor: "white",
+        };
+      case 4:
+        return {
+          headerBackground: "lilac",
+          logoColor: "black",
+          buttonLoginColor: "purple",
+          buttonBackground: "purple",
+          buttonColor: "white",
+        };
+    }
+  };
+
   useEffect(() => {
     const listenScrollEvent = () => {
+      /** Позиция скролла относительно страницы
+       * Если больше нуля - триггерим анимацию появления второго блока
+       * Если равно нулю - триггерим анимацию исчезновения второго блока
+       * */
+      const scrollPosition = window.pageYOffset;
+
       const header = document.getElementById("header");
       const headerCoords = header.getBoundingClientRect();
       const prices = document.getElementById("prices");
       const pricesCoords = prices.getBoundingClientRect();
-      const reviews = document.getElementById("reviews");
-      const reviewsCoords = reviews.getBoundingClientRect();
       const aboutProfit = document.getElementById("about-profit");
       const aboutProfitCoords = aboutProfit.getBoundingClientRect();
       const auditorInfo = document.getElementById("auditor-info");
       const auditorInfoCoords = auditorInfo.getBoundingClientRect();
-      const scrollAnimation = document.getElementById("scroll-animation");
-      const scrollAnimationCoords = scrollAnimation.getBoundingClientRect();
-      const animation = document.getElementById("animation");
-      const animationCoords = animation.getBoundingClientRect();
+      const howItWorks = document.getElementById("how-it-works");
+      const howItWorksCoords = howItWorks.getBoundingClientRect();
+
+      /** Получает координаты блока и вощвращает булевое (true/false), если пора менять цвет хедера */
+      const isShouldChangeHeaderColor = (blockCoordinates) => {
+        /** Суть такова: если блок вышел хотя бы на 1 пиксель за верхнюю границу страницы
+         * ИЛИ
+         * Если нижняя граница блока выехала хотя бы на 1 пиксель больше, чем высота хедера (по нижней границе)
+         * */
+        return (
+          blockCoordinates.top - headerCoords.height < 0 &&
+          blockCoordinates.top + blockCoordinates.height > headerCoords.height
+        );
+      };
 
       if (
-        pricesCoords.top <= headerCoords.bottom &&
-        pricesCoords.bottom >= headerCoords.bottom
+        scrollPosition > 0 &&
+        !secondBlockIsVisible &&
+        isShouldChangeHeaderColor(auditorInfoCoords)
       ) {
-        setColor({
-          headerBackground: "white",
-          logoColor: "black",
-          buttonLoginColor: "purple",
-          buttonBackground: "purple",
-          buttonColor: "white",
-        });
-      } else if (
-        reviewsCoords.top <= headerCoords.bottom &&
-        reviewsCoords.bottom >= headerCoords.bottom
-      ) {
-        setColor({
-          headerBackground: "white",
-          logoColor: "black",
-          buttonLoginColor: "purple",
-          buttonBackground: "purple",
-          buttonColor: "white",
-        });
-      } else if (
-        aboutProfitCoords.top <= headerCoords.bottom &&
-        aboutProfitCoords.bottom >= headerCoords.bottom
-      ) {
-        setColor({
-          headerBackground: "darkPurple", // darkPurple
-          logoColor: "white",
-          buttonLoginColor: "purple",
-          buttonBackground: "purple",
-          buttonColor: "white",
-        });
-      } else if (auditorInfoCoords.top + 120 < headerCoords.bottom) {
-        setHasScrollAnimation(true);
+        console.log("запускается анимация появления второго блока");
+        setSecondBLockIsVisible(true);
         setAnimationInfo({
           animationStart: "start",
           auditorInfoDisplay: "hide",
           backgroundAboutProfit: "background",
         });
-        const animation = () => {
-          setColor({
-            headerBackground: "purple",
-            logoColor: "white",
-            buttonLoginColor: "white",
-            buttonBackground: "backgroundWhite",
-            buttonColor: "purple",
-          });
-        };
-        scrollAnimation.addEventListener("animationend", animation);
-        return () => window.removeEventListener("animationend", animation);
-      } else if (auditorInfoCoords.bottom >= headerCoords.bottom) {
-        setHasScrollAnimation(false);
+      }
+      if (scrollPosition === 0) {
+        console.log("Запускается анимация исчезновения второго блока");
+        setSecondBLockIsVisible(false);
         setAnimationInfo({
           animationStart: "hide",
           auditorInfoDisplay: "start",
-          backgroundAboutProfit: "",
+          backgroundAboutProfit: "background",
         });
         setColor({
           headerBackground: "", // darkPurple
@@ -124,191 +152,27 @@ const App = () => {
           buttonColor: "white",
         });
       }
-    };
 
-    window.addEventListener("scroll", listenScrollEvent);
-
-    return () => window.removeEventListener("scroll", listenScrollEvent);
-  }, []);
-  // console.log(
-  //   `auditorInfo.clientHeight ${auditorInfo.clientHeight} auditorInfoCoords.bottom ${auditorInfoCoords.bottom} auditorInfoCoords.top ${auditorInfoCoords.top}`
-  // );
-  // console.log(
-  //   `auditorInfo.clientHeight ${auditorInfo.clientHeight} auditorInfoCoords.top ${auditorInfoCoords.top}`
-  // );
-  // console.log(
-  //   `aboutProfit.clientHeight ${aboutProfit.clientHeight} aboutProfitCoords.bottom ${aboutProfitCoords.bottom}`
-  // );
-  // console.log(
-  //   `prices.clientHeight ${prices.clientHeight} pricesCoords.bottom ${pricesCoords.bottom}`
-  // );
-  // console.log(
-  //   `reviews.clientHeight ${reviews.clientHeight} reviewsCoords.bottom ${reviewsCoords.bottom}`
-  // );
-  //   if (
-  //     auditorInfoCoords.bottom < auditorInfo.clientHeight &&
-  //     auditorInfoCoords.bottom > 10
-  //   ) {
-  //     setHasScrollAnimation(true);
-  //     setAnimationInfo({
-  //       animationStart: "start",
-  //       auditorInfoDisplay: "hide",
-  //       backgroundAboutProfit: "background",
-  //     });
-  //     // const animation = () => {
-  //     //   setColor({
-  //     //     headerBackground: "purple",
-  //     //     logoColor: "white",
-  //     //     buttonLoginColor: "white",
-  //     //     buttonBackground: "backgroundWhite",
-  //     //     buttonColor: "purple",
-  //     //   });
-  //     // };
-  //     // scrollAnimation.addEventListener("animationend", animation);
-  //     // return () => window.removeEventListener("animationend", animation);
-  //     // } else if (auditorInfoCoords.top < 10) {
-  //   } else if (auditorInfoCoords.top < 10) {
-  //     setHasScrollAnimation(false);
-  //     setAnimationInfo({
-  //       animationStart: "hide",
-  //       auditorInfoDisplay: "start",
-  //       backgroundAboutProfit: "",
-  //     });
-  //     setColor({
-  //       headerBackground: "", // darkPurple
-  //       logoColor: "white",
-  //       buttonLoginColor: "purple",
-  //       buttonBackground: "purple",
-  //       buttonColor: "white",
-  //     });
-  //   } else if (
-  //     aboutProfitCoords.bottom < aboutProfit.clientHeight &&
-  //     aboutProfitCoords.bottom > 0
-  //   ) {
-  //     setColor({
-  //       headerBackground: "darkPurple",
-  //       logoColor: "white",
-  //       buttonLoginColor: "purple",
-  //       buttonBackground: "purple",
-  //       buttonColor: "white",
-  //     });
-  //   } else if (
-  //     pricesCoords.bottom < prices.clientHeight &&
-  //     pricesCoords.bottom > 0
-  //   ) {
-  //     setColor({
-  //       headerBackground: "white",
-  //       logoColor: "black",
-  //       buttonLoginColor: "purple",
-  //       buttonBackground: "purple",
-  //       buttonColor: "white",
-  //     });
-  //   } else if (
-  //     reviewsCoords.bottom < reviews.clientHeight &&
-  //     reviewsCoords.bottom > 0
-  //   ) {
-  //     setColor({
-  //       headerBackground: "white",
-  //       logoColor: "black",
-  //       buttonLoginColor: "purple",
-  //       buttonBackground: "purple",
-  //       buttonColor: "white",
-  //     });
-  //   }
-  // };
-
-  //   window.addEventListener("scroll", listenScrollEvent);
-
-  //   return () => window.removeEventListener("scroll", listenScrollEvent);
-  // }, []);
-
-  // useEffect(() => {
-  //   if (hasScrollAnimation) {
-  //     const timer = setTimeout(() => {
-  //       setColor({
-  //         headerBackground: "purple",
-  //         logoColor: "white",
-  //         buttonLoginColor: "white",
-  //         buttonBackground: "backgroundWhite",
-  //         buttonColor: "purple",
-  //       });
-  //     }, 1000);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [hasScrollAnimation]);
-
-  // смена фона блока howItWorks при скролле
-  useEffect(() => {
-    const listenScrollEvent = () => {
-      const header = document.getElementById("header");
-      const headerCoords = header.getBoundingClientRect();
-      const howItWorks = document.getElementById("how-it-works");
-      const howItWorksCoords = howItWorks.getBoundingClientRect();
-      if (
-        animationHowItWorks.currentImageIndex === 0 &&
-        howItWorksCoords.top <= headerCoords.bottom &&
-        howItWorksCoords.bottom >= headerCoords.bottom
-        // howItWorksCoords.bottom < howItWorks.clientHeight &&
-        // howItWorksCoords.bottom > 0
-      ) {
+      /** Третий блок */
+      if (isShouldChangeHeaderColor(aboutProfitCoords)) {
         setColor({
-          headerBackground: "lilac",
-          logoColor: "black",
+          headerBackground: "darkPurple", // darkPurple
+          logoColor: "white",
           buttonLoginColor: "purple",
           buttonBackground: "purple",
           buttonColor: "white",
         });
-      } else if (
-        animationHowItWorks.currentImageIndex === 1 &&
-        howItWorksCoords.top <= headerCoords.bottom &&
-        howItWorksCoords.bottom >= headerCoords.bottom
-        // howItWorksCoords.bottom < howItWorks.clientHeight &&
-        // howItWorksCoords.bottom > 0
-      ) {
+      }
+
+      /** Слайдер */
+      if (isShouldChangeHeaderColor(howItWorksCoords)) {
+        setColor(howItWorksAnimation(animationHowItWorks.currentImageIndex));
+      }
+
+      /** Стоимость */
+      if (isShouldChangeHeaderColor(pricesCoords)) {
         setColor({
-          headerBackground: "pink",
-          logoColor: "black",
-          buttonLoginColor: "purple",
-          buttonBackground: "purple",
-          buttonColor: "white",
-        });
-      } else if (
-        animationHowItWorks.currentImageIndex === 2 &&
-        howItWorksCoords.top <= headerCoords.bottom &&
-        howItWorksCoords.bottom >= headerCoords.bottom
-        // howItWorksCoords.bottom < howItWorks.clientHeight &&
-        // howItWorksCoords.bottom > 0
-      ) {
-        setColor({
-          headerBackground: "lilac",
-          logoColor: "black",
-          buttonLoginColor: "purple",
-          buttonBackground: "purple",
-          buttonColor: "white",
-        });
-      } else if (
-        animationHowItWorks.currentImageIndex === 3 &&
-        howItWorksCoords.top <= headerCoords.bottom &&
-        howItWorksCoords.bottom >= headerCoords.bottom
-        // howItWorksCoords.bottom < howItWorks.clientHeight &&
-        // howItWorksCoords.bottom > 0
-      ) {
-        setColor({
-          headerBackground: "pink",
-          logoColor: "black",
-          buttonLoginColor: "purple",
-          buttonBackground: "purple",
-          buttonColor: "white",
-        });
-      } else if (
-        animationHowItWorks.currentImageIndex === 4 &&
-        howItWorksCoords.top <= headerCoords.bottom &&
-        howItWorksCoords.bottom >= headerCoords.bottom
-        // howItWorksCoords.bottom < howItWorks.clientHeight &&
-        // howItWorksCoords.bottom > 0
-      ) {
-        setColor({
-          headerBackground: "lilac",
+          headerBackground: "white",
           logoColor: "black",
           buttonLoginColor: "purple",
           buttonBackground: "purple",
@@ -322,74 +186,37 @@ const App = () => {
     return () => window.removeEventListener("scroll", listenScrollEvent);
   }, []);
 
-  // смена фона блока howItWorks без скролла
+  // смена цвета хедера при анимации первого экрана
   useEffect(() => {
-    const header = document.getElementById("header");
-    const headerCoords = header.getBoundingClientRect();
-    const howItWorks = document.getElementById("how-it-works");
-    const howItWorksCoords = howItWorks.getBoundingClientRect();
-    if (
-      animationHowItWorks.currentImageIndex === 0 &&
-      howItWorksCoords.top <= headerCoords.bottom &&
-      howItWorksCoords.bottom >= headerCoords.bottom
-    ) {
-      setColor({
-        headerBackground: "lilac",
-        logoColor: "black",
-        buttonLoginColor: "purple",
-        buttonBackground: "purple",
-        buttonColor: "white",
-      });
-    } else if (
-      animationHowItWorks.currentImageIndex === 1 &&
-      howItWorksCoords.top <= headerCoords.bottom &&
-      howItWorksCoords.bottom >= headerCoords.bottom
-    ) {
-      setColor({
-        headerBackground: "pink",
-        logoColor: "black",
-        buttonLoginColor: "purple",
-        buttonBackground: "purple",
-        buttonColor: "white",
-      });
-    } else if (
-      animationHowItWorks.currentImageIndex === 2 &&
-      howItWorksCoords.top <= headerCoords.bottom &&
-      howItWorksCoords.bottom >= headerCoords.bottom
-    ) {
-      setColor({
-        headerBackground: "lilac",
-        logoColor: "black",
-        buttonLoginColor: "purple",
-        buttonBackground: "purple",
-        buttonColor: "white",
-      });
-    } else if (
-      animationHowItWorks.currentImageIndex === 3 &&
-      howItWorksCoords.top <= headerCoords.bottom &&
-      howItWorksCoords.bottom >= headerCoords.bottom
-    ) {
-      setColor({
-        headerBackground: "pink",
-        logoColor: "black",
-        buttonLoginColor: "purple",
-        buttonBackground: "purple",
-        buttonColor: "white",
-      });
-    } else if (
-      animationHowItWorks.currentImageIndex === 4 &&
-      howItWorksCoords.top <= headerCoords.bottom &&
-      howItWorksCoords.bottom >= headerCoords.bottom
-    ) {
-      setColor({
-        headerBackground: "lilac",
-        logoColor: "black",
-        buttonLoginColor: "purple",
-        buttonBackground: "purple",
-        buttonColor: "white",
-      });
+    if (secondBlockIsVisible) {
+      const animation = () => {
+        setColor({
+          headerBackground: "purple",
+          logoColor: "white",
+          buttonLoginColor: "white",
+          buttonBackground: "backgroundWhite",
+          buttonColor: "purple",
+        });
+      };
+      window.addEventListener("animationend", animation); // animationend
+      return () => window.removeEventListener("animationend", animation);
     }
-  }, [animationHowItWorks.currentImageIndex]);
+  }, [secondBlockIsVisible]);
+
+  /** Смена цвета хедера в howItWorks */
+  // useEffect(() => {
+  //   const header = document.getElementById("header");
+  //   const headerCoords = header.getBoundingClientRect();
+  //   const howItWorks = document.getElementById("how-it-works");
+  //   const howItWorksCoords = howItWorks.getBoundingClientRect();
+
+  //   if (
+  //     howItWorksCoords.top < 0 &&
+  //     howItWorksCoords.top + howItWorksCoords.height > headerCoords.height
+  //   ) {
+  //     setColor(howItWorksAnimation(animationHowItWorks.currentImageIndex));
+  //   }
+  // }, [animationHowItWorks.currentImageIndex]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -471,6 +298,108 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // смена хедера в блоке howItWorks без скролла
+  useEffect(() => {
+    const header = document.getElementById("header");
+    const headerCoords = header.getBoundingClientRect();
+    const howItWorks = document.getElementById("how-it-works");
+    const howItWorksCoords = howItWorks.getBoundingClientRect();
+
+    const isShouldChangeHeaderColor = (blockCoordinates) => {
+      return (
+        blockCoordinates.top - headerCoords.height < 0 &&
+        blockCoordinates.top + blockCoordinates.height > headerCoords.height
+      );
+    };
+    if (
+      animationHowItWorks.currentImageIndex === 0 &&
+      isShouldChangeHeaderColor(howItWorksCoords)
+    ) {
+      setColor({
+        headerBackground: "lilac",
+        logoColor: "black",
+        buttonLoginColor: "purple",
+        buttonBackground: "purple",
+        buttonColor: "white",
+      });
+    } else if (
+      animationHowItWorks.currentImageIndex === 1 &&
+      isShouldChangeHeaderColor(howItWorksCoords)
+    ) {
+      setColor({
+        headerBackground: "pink",
+        logoColor: "black",
+        buttonLoginColor: "purple",
+        buttonBackground: "purple",
+        buttonColor: "white",
+      });
+    } else if (
+      animationHowItWorks.currentImageIndex === 2 &&
+      isShouldChangeHeaderColor(howItWorksCoords)
+    ) {
+      setColor({
+        headerBackground: "lilac",
+        logoColor: "black",
+        buttonLoginColor: "purple",
+        buttonBackground: "purple",
+        buttonColor: "white",
+      });
+    } else if (
+      animationHowItWorks.currentImageIndex === 3 &&
+      isShouldChangeHeaderColor(howItWorksCoords)
+    ) {
+      setColor({
+        headerBackground: "pink",
+        logoColor: "black",
+        buttonLoginColor: "purple",
+        buttonBackground: "purple",
+        buttonColor: "white",
+      });
+    } else if (
+      animationHowItWorks.currentImageIndex === 4 &&
+      isShouldChangeHeaderColor(howItWorksCoords)
+    ) {
+      setColor({
+        headerBackground: "lilac",
+        logoColor: "black",
+        buttonLoginColor: "purple",
+        buttonBackground: "purple",
+        buttonColor: "white",
+      });
+    }
+  }, [animationHowItWorks.currentImageIndex]);
+
+  const [animationAdvantage, setAnimationAdvantage] = useState("");
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const isShouldAnimationAdvantageStart = () => {
+    const animationAdvantage = document.getElementById("animation-advantage");
+    const animationAdvantageCoords = animationAdvantage.getBoundingClientRect();
+    const windowHeight = window.innerHeight
+      ? window.innerHeight
+      : document.documentElement.clientHeight
+      ? document.documentElement.clientHeight
+      : document.body.offsetHeight;
+    return (
+      animationAdvantageCoords.top > document.body.scrollTop &&
+      animationAdvantageCoords.height + animationAdvantageCoords.top <
+        document.body.scrollTop + windowHeight
+    );
+  };
+
+  useEffect(() => {
+    if (isShouldAnimationAdvantageStart()) {
+      setStartAnimationAdvantage(true);
+      setAnimationAdvantage("start");
+    }
+    setTimeout(function () {
+      setInterval(function () {
+        setAnimationAdvantage("");
+        setStartAnimationAdvantage(false);
+      }, 1800);
+    }, 1800);
+  }, [isShouldAnimationAdvantageStart]);
+
   return (
     <>
       <div className={s.app}>
@@ -483,7 +412,10 @@ const App = () => {
           />
           <AuditorInfo display={animationInfo.auditorInfoDisplay} />
           <ScrollAnimation animation={animationInfo.animationStart} />
-          <AboutProfit background={animationInfo.backgroundAboutProfit} />
+          <AboutProfit
+            background={animationInfo.backgroundAboutProfit}
+            animationAdvantage={animationAdvantage}
+          />
           <HowItWorks
             backgroundImage={animationHowItWorks.howItWorksImage}
             background={stylesHowitWorks.background}

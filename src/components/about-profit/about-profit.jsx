@@ -1,8 +1,10 @@
 import React from 'react'
 
 import s from './about-profit.module.scss'
+// import video from './images/анимация.mov';
+import video from './images/анимация.mov';
 
-function AboutProfit({ background }) {
+function AboutProfit({ background, animationAdvantage }) {
   return (
     <section className={`${s['about-profit']} ${s[`about-profit_${background}`]}`} id='about-profit'> 
       <div className={s['about-profit__main-container']}>
@@ -80,8 +82,12 @@ function AboutProfit({ background }) {
             </div>
           </div>
         </div>
-        <div className={s['about-profit__animation-advantage']} />
+        <div className={`${s['about-profit__animation-advantage']} ${s[`about-profit__animation-advantage_${animationAdvantage}`]} wow`} id='animation-advantage'/>
+        <div className="wow" id='animation-advantage'> 123</div>
+  {/* <video controls="controls"  
+       name="Video Name" src={video}></video> */}
       </div>
+      
     </section>
   )
 }
