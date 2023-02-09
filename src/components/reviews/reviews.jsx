@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import s from './reviews.module.scss'
 import { NextIcon } from '../next-icon/next-icon'
 import { BackIcon } from '../back-icon/back-icon'
-import * as reviews from './utils/reviews.json'
+import response from './utils/reviews.json'
 
 function Reviews() {
   const [reviewsData, setReviewsData] = React.useState([])
@@ -15,7 +15,7 @@ function Reviews() {
 
   const getInitialDatas = async () => {
     return await new Promise((resolve) => {
-      setTimeout(() => resolve(reviews.response), 1000)
+      setTimeout(() => resolve(response.response), 1000)
     })
   }
 
@@ -80,6 +80,7 @@ function Reviews() {
               src={item.authorPicture}
               className={`${s.reviews__photo}
             ${s[`reviews__photo_${item.backgroundPic}`]}`}
+            alt=""
             />
             <p className={s.reviews__text}>{item.text}</p>
             <div className={s['reviews__caption-container']}>

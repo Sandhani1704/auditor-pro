@@ -2,18 +2,18 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 619px;
+  min-height: 100vh;
   padding-left: 150px;
   padding-right: 150px;
-  padding-top: 98px;
+  // padding-top: 98px;
+  padding-top: 200px;
   z-index: 6;
   position: relative;
   overflow: hidden;
-  // overflow: scroll;
-  background: #11032C;
-  
+  background: #121016;
+
   &_background {
-    background: #11032C;
+    background: #121016;
     background-size: cover;
   }
   &__main-container {
@@ -25,12 +25,11 @@
   }
 
   &__title {
-    font-family: 'Raleway', Arial, sans-serif;
+    font-family: "Raleway", Arial, sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
     line-height: 42px;
-    // background-image: linear-gradient(135deg, #8550f2, #ffffff);
     background-image: linear-gradient(5deg, #8550f2, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -41,10 +40,8 @@
   }
 
   &__main-text-container {
-    // padding-top: 98px;
     display: flex;
     flex-direction: column;
-    // padding-bottom: 130px;
     min-height: 391px;
   }
 
@@ -58,7 +55,7 @@
   }
 
   &__paragraph-title {
-    font-family: 'Raleway', Arial, sans-serif;
+    font-family: "Raleway", Arial, sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -73,7 +70,7 @@
   }
 
   &__paragraph-text {
-    font-family: 'Raleway', Arial, sans-serif;
+    font-family: "Raleway", Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -89,26 +86,26 @@
 
   &__animation-advantage {
     display: flex;
-    background: url('./images/анимация_преимущества.png') transparent no-repeat;
+    background: url("./images/анимация_преимущества.png") transparent no-repeat;
     max-width: 555px;
     width: 100%;
     height: 555px;
     background-position: bottom;
-    // background-size: cover;
     padding-bottom: 48px;
     &_start {
-      // background: url('./images/Анимация_преимущества.gif') transparent no-repeat;
-      background: url('./images/Анимация_преимущества.gif') transparent no-repeat;
+      background: url("./images/анимация.gif") transparent no-repeat;
+    }
+    &_hide {
+      background: url("./images/анимация_преимущества.png") transparent
+        no-repeat;
     }
   }
-  
 }
 
 @media screen and (max-width: 1300px) {
   .about-profit {
     padding-left: 24px;
     padding-right: 24px;
-    // justify-content: flex-start;
     min-height: 912px;
     align-items: center;
     padding-top: 64px;
@@ -184,7 +181,7 @@
     }
     &__paragraph-text_small {
       display: inline-block;
-      font-family: 'Raleway', Arial, sans-serif;
+      font-family: "Raleway", Arial, sans-serif;
       font-style: normal;
       font-weight: 400px;
       font-size: 12px;

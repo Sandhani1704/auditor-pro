@@ -4,10 +4,10 @@
   overflow: hidden;
   background: rgba(248, 244, 254, 1);
   width: 100%;
+  min-height: 100vh;
   justify-content: space-around;
   align-items: center;
   padding: 0 150px;
-  // padding-top: 72px;
   padding-top: 50px;
   padding-bottom: 152px;
   &_lilac {
@@ -46,7 +46,7 @@
 
   &__title-tablet {
     display: none;
-    font-family: 'Raleway', Arial, sans-serif;
+    font-family: "Raleway", Arial, sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
@@ -73,7 +73,7 @@
 
   &__subtitle-tablet {
     display: none;
-    font-family: 'Raleway', Arial, sans-serif;
+    font-family: "Raleway", Arial, sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 18px;

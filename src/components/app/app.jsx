@@ -15,8 +15,7 @@ const App = () => {
    * Меняется на true после окончания анимации "выдвижения второго блока"
    * */
   const [secondBlockIsVisible, setSecondBLockIsVisible] = useState(false);
-  const [startAnimationAdvantage, setStartAnimationAdvantage] = useState(false);
-
+  
   const [animationInfo, setAnimationInfo] = useState({
     animationStart: "",
     auditorInfoDisplay: "",
@@ -203,21 +202,6 @@ const App = () => {
     }
   }, [secondBlockIsVisible]);
 
-  /** Смена цвета хедера в howItWorks */
-  // useEffect(() => {
-  //   const header = document.getElementById("header");
-  //   const headerCoords = header.getBoundingClientRect();
-  //   const howItWorks = document.getElementById("how-it-works");
-  //   const howItWorksCoords = howItWorks.getBoundingClientRect();
-
-  //   if (
-  //     howItWorksCoords.top < 0 &&
-  //     howItWorksCoords.top + howItWorksCoords.height > headerCoords.height
-  //   ) {
-  //     setColor(howItWorksAnimation(animationHowItWorks.currentImageIndex));
-  //   }
-  // }, [animationHowItWorks.currentImageIndex]);
-
   useEffect(() => {
     const interval = setInterval(() => {
       const images = [
@@ -369,37 +353,6 @@ const App = () => {
     }
   }, [animationHowItWorks.currentImageIndex]);
 
-  const [animationAdvantage, setAnimationAdvantage] = useState("");
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const isShouldAnimationAdvantageStart = () => {
-    const animationAdvantage = document.getElementById("animation-advantage");
-    const animationAdvantageCoords = animationAdvantage.getBoundingClientRect();
-    const windowHeight = window.innerHeight
-      ? window.innerHeight
-      : document.documentElement.clientHeight
-      ? document.documentElement.clientHeight
-      : document.body.offsetHeight;
-    return (
-      animationAdvantageCoords.top > document.body.scrollTop &&
-      animationAdvantageCoords.height + animationAdvantageCoords.top <
-        document.body.scrollTop + windowHeight
-    );
-  };
-
-  useEffect(() => {
-    if (isShouldAnimationAdvantageStart()) {
-      setStartAnimationAdvantage(true);
-      setAnimationAdvantage("start");
-    }
-    setTimeout(function () {
-      setInterval(function () {
-        setAnimationAdvantage("");
-        setStartAnimationAdvantage(false);
-      }, 1800);
-    }, 1800);
-  }, [isShouldAnimationAdvantageStart]);
-
   return (
     <>
       <div className={s.app}>
@@ -412,10 +365,7 @@ const App = () => {
           />
           <AuditorInfo display={animationInfo.auditorInfoDisplay} />
           <ScrollAnimation animation={animationInfo.animationStart} />
-          <AboutProfit
-            background={animationInfo.backgroundAboutProfit}
-            animationAdvantage={animationAdvantage}
-          />
+          <AboutProfit background={animationInfo.backgroundAboutProfit} />
           <HowItWorks
             backgroundImage={animationHowItWorks.howItWorksImage}
             background={stylesHowitWorks.background}

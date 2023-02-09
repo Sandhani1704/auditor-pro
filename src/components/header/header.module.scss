@@ -23,23 +23,24 @@
     background: #8550f2;
   }
   &_darkPurple {
-    // background: inherit;
-    background: #11032C;;
+    background: #121016;
+    // background: #11032C;
     background-size: cover;
   }
   &_zIndex {
     z-index: 9;
   }
-  &_info {
-    background: #8550f2;
-    background-size: cover;
-    margin: 0 auto;
-    z-index: 101 !important;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-left: 150px;
-    padding-right: 150px;
-  }
+  // &_info {
+  //   //background: #8550f2;
+  //   background: #11032C;
+  //   background-size: cover;
+  //   margin: 0 auto;
+  //   z-index: 101 !important;
+  //   padding-left: 0px;
+  //   padding-right: 0px;
+  //   padding-left: 150px;
+  //   padding-right: 150px;
+  // }
   &__container {
     display: flex;
     max-width: 1140px;

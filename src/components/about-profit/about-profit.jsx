@@ -1,19 +1,49 @@
-import React from 'react'
+import React from "react";
+import { useState, useEffect } from "react";
+import s from "./about-profit.module.scss";
 
-import s from './about-profit.module.scss'
-// import video from './images/анимация.mov';
-import video from './images/анимация.mov';
+function AboutProfit({ background }) {
+  const [animation, setAnimation] = useState("");
 
-function AboutProfit({ background, animationAdvantage }) {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const isShouldAnimationAdvantageStart = () => {
+    const animationAdvantage = document.getElementById("animation-advantage");
+    const animationAdvantageCoords = animationAdvantage.getBoundingClientRect();
+    const windowHeight = window.innerHeight
+      ? window.innerHeight
+      : document.documentElement.clientHeight
+      ? document.documentElement.clientHeight
+      : document.body.offsetHeight;
+    return (
+      animationAdvantageCoords.top > document.body.scrollTop &&
+      animationAdvantageCoords.height + animationAdvantageCoords.top <
+        document.body.scrollTop + windowHeight
+    );
+  };
+  useEffect(() => {
+    if (isShouldAnimationAdvantageStart()) {
+      setAnimation("start");
+    }
+
+    if (!isShouldAnimationAdvantageStart()) {
+      setAnimation("hide");
+    }
+  }, [isShouldAnimationAdvantageStart]);
+
   return (
-    <section className={`${s['about-profit']} ${s[`about-profit_${background}`]}`} id='about-profit'> 
-      <div className={s['about-profit__main-container']}>
-        <div className={s['about-profit__main-text-container']}>
-          <h1 className={s['about-profit__title']}>Что вам даст AuditorPRO</h1>
-          <div className={s['about-profit__text-container']}>
-            <div className={s['about-profit__paragraph-container']}>
-              <h3 className={s['about-profit__paragraph-title']}>Оптимизация работы</h3>
-              <p className={s['about-profit__paragraph-text']}>
+    <section
+      className={`${s["about-profit"]} ${s[`about-profit_${background}`]}`}
+      id="about-profit"
+    >
+      <div className={s["about-profit__main-container"]}>
+        <div className={s["about-profit__main-text-container"]}>
+          <h1 className={s["about-profit__title"]}>Что вам даст AuditorPRO</h1>
+          <div className={s["about-profit__text-container"]}>
+            <div className={s["about-profit__paragraph-container"]}>
+              <h3 className={s["about-profit__paragraph-title"]}>
+                Оптимизация работы
+              </h3>
+              <p className={s["about-profit__paragraph-text"]}>
                 С чек-листами не нужно
                 <br />
                 вспоминать, что и когда делать, <br />
@@ -22,7 +52,7 @@ function AboutProfit({ background, animationAdvantage }) {
                 на самой работе
               </p>
 
-              <p className={s['about-profit__paragraph-text_small']}>
+              <p className={s["about-profit__paragraph-text_small"]}>
                 С чек-листами не нужно <br />
                 вспоминать, что и когда <br />
                 делать, а можно на самой
@@ -31,13 +61,16 @@ function AboutProfit({ background, animationAdvantage }) {
               </p>
             </div>
 
-            <div className={s['about-profit__paragraph-container']}>
-              <h3 className={s['about-profit__paragraph-title']}>Экономия времени</h3>
-              <p className={s['about-profit__paragraph-text']}>
-                Составленный чек-лист будет <br /> служить долго и больше <br /> не нужно каждый раз тратить
+            <div className={s["about-profit__paragraph-container"]}>
+              <h3 className={s["about-profit__paragraph-title"]}>
+                Экономия времени
+              </h3>
+              <p className={s["about-profit__paragraph-text"]}>
+                Составленный чек-лист будет <br /> служить долго и больше <br />{" "}
+                не нужно каждый раз тратить
                 <br /> время на планирование работы
               </p>
-              <p className={s['about-profit__paragraph-text_small']}>
+              <p className={s["about-profit__paragraph-text_small"]}>
                 Составленный чек-лист <br />
                 будет служить долго и <br />
                 больше не нужно каждый
@@ -47,14 +80,16 @@ function AboutProfit({ background, animationAdvantage }) {
               </p>
             </div>
 
-            <div className={s['about-profit__paragraph-container']}>
-              <h3 className={s['about-profit__paragraph-title']}>Быстрое обучение новых сотрудников</h3>
-              <p className={s['about-profit__paragraph-text']}>
+            <div className={s["about-profit__paragraph-container"]}>
+              <h3 className={s["about-profit__paragraph-title"]}>
+                Быстрое обучение новых сотрудников
+              </h3>
+              <p className={s["about-profit__paragraph-text"]}>
                 Благодаря составленному <br /> чек-листу у сотрудника будет
                 <br /> структурированная информация
                 <br /> о рабочем процессе
               </p>
-              <p className={s['about-profit__paragraph-text_small']}>
+              <p className={s["about-profit__paragraph-text_small"]}>
                 Благодаря составленному <br />
                 чек-листу у сотрудника <br />
                 будет структурированная
@@ -64,15 +99,18 @@ function AboutProfit({ background, animationAdvantage }) {
               </p>
             </div>
 
-            <div className={s['about-profit__paragraph-container']}>
-              <h3 className={`${s['about-profit__paragraph-title']} ${s['about-profit__paragraph-title_high']}`}>
+            <div className={s["about-profit__paragraph-container"]}>
+              <h3
+                className={`${s["about-profit__paragraph-title"]} ${s["about-profit__paragraph-title_high"]}`}
+              >
                 Сокращение числа ошибок
               </h3>
-              <p className={s['about-profit__paragraph-text']}>
+              <p className={s["about-profit__paragraph-text"]}>
                 Допущенные во время работы <br />
-                промахи можно добавить <br />в чек-лист и больше <br /> их не повторять
+                промахи можно добавить <br />в чек-лист и больше <br /> их не
+                повторять
               </p>
-              <p className={s['about-profit__paragraph-text_small']}>
+              <p className={s["about-profit__paragraph-text_small"]}>
                 Допущенные во время <br />
                 работы промахи можно <br />
                 добавить в чек-лист и
@@ -82,14 +120,15 @@ function AboutProfit({ background, animationAdvantage }) {
             </div>
           </div>
         </div>
-        <div className={`${s['about-profit__animation-advantage']} ${s[`about-profit__animation-advantage_${animationAdvantage}`]} wow`} id='animation-advantage'/>
-        <div className="wow" id='animation-advantage'> 123</div>
-  {/* <video controls="controls"  
-       name="Video Name" src={video}></video> */}
+        <div
+          className={`${s["about-profit__animation-advantage"]} ${
+            s[`about-profit__animation-advantage_${animation}`]
+          }`}
+          id="animation-advantage"
+        />
       </div>
-      
     </section>
-  )
+  );
 }
 
-export default AboutProfit
+export default AboutProfit;
